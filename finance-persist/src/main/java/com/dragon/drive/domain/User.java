@@ -8,15 +8,17 @@ public class User implements Serializable {
 	private static final long serialVersionUID = -1997754020851267190L;
 
 	private Integer id;
-	private String username;
+	private String loginname;
 	private String password;
 
 	private String name;
 	private String phonenum;
+	private Gender gender;
 	private Date birthday;
 	private String email;
 	private String wechat;
 	private String qq;
+	private String weibo;
 	private int age;
 	private String idCard;
 
@@ -30,12 +32,12 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getLoginname() {
+		return loginname;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setLoginname(String loginname) {
+		this.loginname = loginname;
 	}
 
 	public String getPassword() {
@@ -56,6 +58,14 @@ public class User implements Serializable {
 
 	public String getPhonenum() {
 		return phonenum;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
 	public void setPhonenum(String phonenum) {
@@ -92,6 +102,14 @@ public class User implements Serializable {
 
 	public void setQq(String qq) {
 		this.qq = qq;
+	}
+
+	public String getWeibo() {
+		return weibo;
+	}
+
+	public void setWeibo(String weibo) {
+		this.weibo = weibo;
 	}
 
 	public int getAge() {
