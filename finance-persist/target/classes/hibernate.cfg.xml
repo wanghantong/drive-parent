@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- jBPM4.4要求如是MySQL，方言要是MySQL5InnoDBDialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<!-- 一、数据库信息（方言+连接信息） -->
+
+		<property name="hibernate.connection.url">
+			jdbc:mysql:localhost:3306/drive
+		</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<!-- <property name="hibernate.connection.password"></property> -->
+		<property name="hibernate.connection.password">530A1E9822CB616C8DB9662C7D40CAE83F8C4B5C</property>
+
+
+		<!-- 二、其他配置 -->
+		<property name="show_sql">true</property>
+
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<property name="javax.persistence.validation.mode">none</property>
+
+		<mapping resource="com/dragon/drive/domain/user.hbm.xml" />
+		
+		
+	</session-factory>
+
+</hibernate-configuration>
