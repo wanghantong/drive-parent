@@ -16,6 +16,7 @@ public class User implements Serializable {
 	private Gender gender;
 	private Date birthday;
 	private String email;
+	
 	private String wechat;
 	private String qq;
 	private String weibo;

@@ -5,26 +5,12 @@
 
 <hibernate-mapping package="com.dragon.drive.domain">
 
-	<class name="User" table="user">
+	<class name="TestDomain" table="test">
 		<id name="id">
 			<generator class="native" />
 		</id>
-		<property name="loginname" />
-		<property name="password" />
+		
 		<property name="name" />
-		<property name="gender" />
-		<property name="phonenum" length="11" />
-		<property name="email" />
-		
-		<property name="qq" />
-		<property name="wechat" />
-		<property name="weibo" />
-		
-		<property name="age" />
-		<property name="idCard" />
-		<property name="birthday" />
-
-		<property name="carId" />
 		<!-- department:Department属性，我与Department的多对一 <many-to-one name="department" 
 			class="Department" column="departmentId"></many-to-one> -->
 		<!-- roles:Set<Role>属性，我与Role的多对多 <set name="roles" table="itcast_user_role"> 

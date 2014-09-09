@@ -13,24 +13,23 @@
 		<property name="password" />
 		<property name="name" />
 		<property name="gender" />
-		<property name="phoneNumber" length="11"/>
+		<property name="phonenum" length="11" />
 		<property name="email" />
+		
 		<property name="qq" />
 		<property name="wechat" />
 		<property name="weibo" />
+		
 		<property name="age" />
 		<property name="idCard" />
 		<property name="birthday" />
 
-		<!-- department:Department属性，我与Department的多对一 -->
-		<many-to-one name="department" class="Department" column="departmentId"></many-to-one>
-
-		<!-- roles:Set<Role>属性，我与Role的多对多 -->
-		<set name="roles" table="itcast_user_role">
-			<key column="userId"></key>
-			<many-to-many class="Role" column="roleId" />
-		</set>
-		
+		<property name="carId" />
+		<!-- department:Department属性，我与Department的多对一 <many-to-one name="department" 
+			class="Department" column="departmentId"></many-to-one> -->
+		<!-- roles:Set<Role>属性，我与Role的多对多 <set name="roles" table="itcast_user_role"> 
+			<key column="userId"></key> <many-to-many class="Role" column="roleId" /> 
+			</set> -->
 	</class>
 
 </hibernate-mapping>

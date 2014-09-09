@@ -1,23 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: com.dragon.drive.domain.TestHibernateConnectMysql
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.931 sec <<< FAILURE!
-connectMysqlTest(com.dragon.drive.domain.TestHibernateConnectMysql)  Time elapsed: 0.858 sec  <<< ERROR!
-org.hibernate.HibernateException: Unable to make JDBC Connection [jdbc:mysql:10.82.131.154:3306//drive]
-	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:77)
-	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:106)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:111)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:234)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:206)
-	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.buildJdbcConnectionAccess(JdbcServicesImpl.java:260)
-	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:94)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:111)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:234)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:206)
-	at org.hibernate.cfg.Configuration.buildTypeRegistrations(Configuration.java:1885)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1843)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1928)
-	at com.dragon.drive.domain.TestHibernateConnectMysql.connectMysqlTest(TestHibernateConnectMysql.java:16)
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.874 sec <<< FAILURE!
+connectMysqlTest(com.dragon.drive.domain.TestHibernateConnectMysql)  Time elapsed: 0.784 sec  <<< ERROR!
+org.hibernate.MappingNotFoundException: resource: com/dragon/drive/domain/User.hbm.xml not found
+	at org.hibernate.cfg.Configuration.addResource(Configuration.java:741)
+	at org.hibernate.cfg.Configuration.addClass(Configuration.java:786)
+	at com.dragon.drive.domain.TestHibernateConnectMysql.connectMysqlTest(TestHibernateConnectMysql.java:13)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -34,16 +23,15 @@ org.hibernate.HibernateException: Unable to make JDBC Connection [jdbc:mysql:10.
 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
 	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:606)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
