@@ -2,6 +2,8 @@ package com.dragon.drive.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class User implements Serializable {
 
@@ -16,14 +18,14 @@ public class User implements Serializable {
 	private Gender gender;
 	private Date birthday;
 	private String email;
-	
+
 	private String wechat;
 	private String qq;
 	private String weibo;
 	private int age;
 	private String idCard;
 
-	private String carId;
+	private Set<Car> cars = new HashSet<Car>();
 
 	public Integer getId() {
 		return id;
@@ -133,11 +135,12 @@ public class User implements Serializable {
 		this.idCard = idCard;
 	}
 
-	public String getCarId() {
-		return carId;
+	public Set<Car> getCars() {
+		return cars;
 	}
 
-	public void setCarId(String carId) {
-		this.carId = carId;
+	public void setCars(Set<Car> cars) {
+		this.cars = cars;
 	}
+
 }

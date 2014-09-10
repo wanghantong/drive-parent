@@ -15,16 +15,19 @@
 		<property name="gender" />
 		<property name="phonenum" length="11" />
 		<property name="email" />
-		
+
 		<property name="qq" />
 		<property name="wechat" />
 		<property name="weibo" />
-		
+
 		<property name="age" />
 		<property name="idCard" />
 		<property name="birthday" />
 
-		<property name="carId" />
+		<set name="cars">
+			<key column="carId" not-null="true" />
+			<one-to-many class="User" />
+		</set>
 		<!-- department:Department属性，我与Department的多对一 <many-to-one name="department" 
 			class="Department" column="departmentId"></many-to-one> -->
 		<!-- roles:Set<Role>属性，我与Role的多对多 <set name="roles" table="itcast_user_role"> 

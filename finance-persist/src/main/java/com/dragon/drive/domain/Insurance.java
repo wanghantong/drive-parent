@@ -1,9 +1,7 @@
 package com.dragon.drive.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Insurance implements Serializable {
 
@@ -18,8 +16,7 @@ public class Insurance implements Serializable {
 	private String information;
 	private double cost;
 	private boolean status;
-
-	private List<Accident> accidents = new ArrayList<Accident>();
+	
 
 	public Integer getId() {
 		return id;
@@ -93,12 +90,5 @@ public class Insurance implements Serializable {
 		this.status = status;
 	}
 
-	public List<Accident> getAccidents() {
-		return accidents;
-	}
-
-	public void setAccidents(List<Accident> accidents) {
-		this.accidents = accidents;
-	}
 
 }

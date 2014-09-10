@@ -1,6 +1,8 @@
 package com.dragon.drive.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Car implements Serializable {
 
@@ -17,6 +19,7 @@ public class Car implements Serializable {
 	private String typeName;
 
 	private Insurance insurance;
+	List<Accident> accidents = new ArrayList<Accident>();
 
 	public Integer getId() {
 		return id;
@@ -88,6 +91,14 @@ public class Car implements Serializable {
 
 	public void setInsurance(Insurance insurance) {
 		this.insurance = insurance;
+	}
+
+	public List<Accident> getAccidents() {
+		return accidents;
+	}
+
+	public void setAccidents(List<Accident> accidents) {
+		this.accidents = accidents;
 	}
 
 }
