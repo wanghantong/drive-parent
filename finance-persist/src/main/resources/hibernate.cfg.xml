@@ -24,6 +24,7 @@
 		<mapping resource="User.hbm.xml" />
 		<mapping resource="Car.hbm.xml" />
 		<mapping resource="Insurance.hbm.xml" />
+		<mapping resource="Accident.hbm.xml" />
 
 	</session-factory>
 

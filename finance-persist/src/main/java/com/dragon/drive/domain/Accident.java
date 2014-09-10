@@ -16,6 +16,7 @@ public class Accident implements Serializable {
 	private AccidentType accidentType;
 	private boolean hurt;
 	private boolean status;
+	private double mileage;
 
 	public Integer getId() {
 		return id;
@@ -71,6 +72,14 @@ public class Accident implements Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public double getMileage() {
+		return mileage;
+	}
+
+	public void setMileage(double mileage) {
+		this.mileage = mileage;
 	}
 
 }

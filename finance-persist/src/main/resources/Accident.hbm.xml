@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.dragon.drive.domain">
+
+	<class name="Accident" table="accident">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="time" />
+		<property name="description" />
+		<property name="cost" />
+		<property name="mileage" />
+		<property name="hurt" />
+		<property name="status" />
+		<property name="accidentType" />
+
+	</class>
+
+</hibernate-mapping>
