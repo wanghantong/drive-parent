@@ -17,14 +17,5 @@ public class TestHibernateConnectMysql {
 		session.getTransaction().commit();
 		session.close();
 	}
-	@Test
-	public void testCreateUser() {
-		Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
-		SessionFactory sessions = cfg.buildSessionFactory();
-		Session session = sessions.openSession();
-		session.beginTransaction();
-		session.getTransaction().commit();
-		session.close();
-	}
 
 }
