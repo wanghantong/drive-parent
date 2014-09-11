@@ -91,7 +91,5 @@ public class Car implements Serializable {
 	public void setAccidents(Set<Accident> accidents) {
 		this.accidents = accidents;
 	}
-	
-	
 
 }

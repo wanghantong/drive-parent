@@ -1,6 +1,7 @@
 package com.dragon.drive.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -51,9 +52,22 @@ public class TestSave {
 		session.save(user);
 	}
 
-	@Ignore
 	@Test
 	public void testSaveCar() {
+
+		Car car = new Car();
+		car.setBrandName("BMW");
+		car.setCarlicence("13332432fdsa");
+		car.setEnginenum("22233131");
+		car.setMileage(12222);
+		car.setPlatenum("京A88888");
+		car.setTypeName("豪华");
+		car.setCatergoryName("3.0T");
+		session.save(car);
+	}
+
+	@Test
+	public void testSaveInsuranceWithNewCar() {
 
 		Car car = new Car();
 		car.setBrandName("奔驰");
@@ -63,12 +77,6 @@ public class TestSave {
 		car.setPlatenum("京A88888");
 		car.setTypeName("豪华");
 		car.setCatergoryName("3.0T");
-
-		session.save(car);
-	}
-
-	@Test
-	public void testSaveInsurance() {
 
 		Insurance insurance = new Insurance();
 		insurance.setAccidentTimes(2);
@@ -79,19 +87,28 @@ public class TestSave {
 		insurance.setProtector("李晓明");
 		insurance.setName("平安保险");
 		insurance.setInformation("车门损坏，换了一个车门");
-
-		Car car = new Car();
-		car.setBrandName("奔驰");
-		car.setCarlicence("13332432fdsa");
-		car.setEnginenum("22233131");
-		car.setMileage(12222);
-		car.setPlatenum("京A88888");
-		car.setTypeName("豪华");
-		car.setCatergoryName("3.0T");
 		insurance.setCar(car);
 
+		session.save(car);
 		session.save(insurance);
 
+	}
+	@Test
+	public void testSaveInsuranceByPrisistCar() {
+		Car car = (Car) session.createQuery("from Car where id=?")
+				.setInteger(0, 4).uniqueResult();
+		
+		Insurance insurance = new Insurance();
+		insurance.setAccidentTimes(2);
+		insurance.setCost(22222);
+		insurance.setInsuranceEndtime(new Date());
+		insurance.setInsuranceStarttime(new Date());
+		insurance.setStatus(true);
+		insurance.setProtector("李小强");
+		insurance.setName("太平保险");
+		insurance.setInformation("车门损坏，换了一个车门");
+		insurance.setCar(car);
+		session.save(insurance);
 	}
 
 	@After

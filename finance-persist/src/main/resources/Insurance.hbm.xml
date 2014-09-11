@@ -7,11 +7,10 @@
 
 	<class name="Insurance" table="insurance">
 
-		<id name="id" column="carId">
-			<generator class="foreign">
-				<param name="property">car</param>
-			</generator>
+		<id name="id" column="insuranceId">
+			<generator class="native" />
 		</id>
+
 		<property name="name" />
 		<property name="insuranceEndtime" />
 		<property name="insuranceStarttime" />
@@ -20,7 +19,9 @@
 		<property name="information" />
 		<property name="cost" />
 		<property name="status" />
-		<one-to-one name="car" constrained="true" />
+
+		<many-to-one name="car" column="carId" unique="true"
+			not-null="true"></many-to-one>
 	</class>
 
 </hibernate-mapping>
