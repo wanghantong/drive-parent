@@ -1,7 +1,6 @@
 package com.dragon.drive.domain;
 
 import java.util.Date;
-import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -51,7 +50,7 @@ public class TestSave {
 		user.setWeibo("hantong4510");
 		session.save(user);
 	}
-
+	@Ignore
 	@Test
 	public void testSaveCar() {
 
@@ -65,7 +64,7 @@ public class TestSave {
 		car.setCatergoryName("3.0T");
 		session.save(car);
 	}
-
+	@Ignore
 	@Test
 	public void testSaveInsuranceWithNewCar() {
 
@@ -93,6 +92,7 @@ public class TestSave {
 		session.save(insurance);
 
 	}
+	@Ignore
 	@Test
 	public void testSaveInsuranceByPrisistCar() {
 		Car car = (Car) session.createQuery("from Car where id=?")
