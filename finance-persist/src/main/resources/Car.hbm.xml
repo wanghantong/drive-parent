@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.dragon.drive.domain">
 
 	<class name="Car" table="car">
-		<id name="id">
+		<id name="id" column="carId">
 			<generator class="native" />
 		</id>
 		<property name="platenum" />
@@ -17,8 +17,8 @@
 		<property name="catergoryName" />
 		<property name="typeName" />
 
-		<many-to-one name="insurance" column="insuranceId" unique="true"
-			not-null="true" />
+		<!-- <many-to-one name="insurance" column="insuranceId" unique="true"
+			not-null="true" update="true"/> -->
 			
 		<set name="accidents" table="car_accident">
 			<key column="id" />

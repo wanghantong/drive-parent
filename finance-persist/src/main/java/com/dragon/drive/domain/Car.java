@@ -1,8 +1,8 @@
 package com.dragon.drive.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Car implements Serializable {
 
@@ -18,8 +18,7 @@ public class Car implements Serializable {
 	private String catergoryName;
 	private String typeName;
 
-	private Insurance insurance;
-	List<Accident> accidents = new ArrayList<Accident>();
+	Set<Accident> accidents = new HashSet<Accident>();
 
 	public Integer getId() {
 		return id;
@@ -85,20 +84,14 @@ public class Car implements Serializable {
 		this.typeName = typeName;
 	}
 
-	public Insurance getInsurance() {
-		return insurance;
-	}
-
-	public void setInsurance(Insurance insurance) {
-		this.insurance = insurance;
-	}
-
-	public List<Accident> getAccidents() {
+	public Set<Accident> getAccidents() {
 		return accidents;
 	}
 
-	public void setAccidents(List<Accident> accidents) {
+	public void setAccidents(Set<Accident> accidents) {
 		this.accidents = accidents;
 	}
+	
+	
 
 }

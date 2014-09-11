@@ -6,8 +6,11 @@
 <hibernate-mapping package="com.dragon.drive.domain">
 
 	<class name="Insurance" table="insurance">
-		<id name="id">
-			<generator class="native" />
+
+		<id name="id" column="carId">
+			<generator class="foreign">
+				<param name="property">car</param>
+			</generator>
 		</id>
 		<property name="name" />
 		<property name="insuranceEndtime" />
@@ -17,7 +20,7 @@
 		<property name="information" />
 		<property name="cost" />
 		<property name="status" />
-		
+		<one-to-one name="car" constrained="true" />
 	</class>
 
 </hibernate-mapping>

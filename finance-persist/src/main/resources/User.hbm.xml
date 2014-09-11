@@ -28,6 +28,11 @@
 			<key column="carId" not-null="false" />
 			<one-to-many class="User" />
 		</set>
+		<!-- department:Department属性，我与Department的多对一 <many-to-one name="department" 
+			class="Department" column="departmentId"></many-to-one> -->
+		<!-- roles:Set<Role>属性，我与Role的多对多 <set name="roles" table="itcast_user_role"> 
+			<key column="userId"></key> <many-to-many class="Role" column="roleId" /> 
+			</set> -->
 	</class>
 
 </hibernate-mapping>
