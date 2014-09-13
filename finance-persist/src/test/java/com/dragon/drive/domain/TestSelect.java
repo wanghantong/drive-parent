@@ -2,8 +2,6 @@ package com.dragon.drive.domain;
 
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder.In;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -59,14 +57,14 @@ public class TestSelect {
 
 	@Test
 	public void selectCarWithInsurance() {
-		List<Insurance> list = session.createQuery("from Insurance").list();
-		if (list.size() > 0) {
-			for (Insurance ins : list) {
-				Integer id = ins.getCar().getId();
-				double cost = ins.getCost();
-				System.out.println("cost " + cost + " id " + id);
-			}
-		}
+		// List<Insurance> list = session.createQuery("from Insurance").list();
+		// if (list.size() > 0) {
+		// for (Insurance ins : list) {
+		// Integer id = ins.getCar().getId();
+		// double cost = ins.getCost();
+		// System.out.println("cost " + cost + " id " + id);
+		// }
+		// }
 	}
 
 	@Test
@@ -83,6 +81,23 @@ public class TestSelect {
 	@Test
 	public void selectCarsWithNoInsurance() {
 		session.createSQLQuery("select * from ");
+	}
+
+	@Test
+	public void selectCarType() {
+		List<CarType> list = session.createQuery("from CarType").list();
+		for (CarType ct : list) {
+			System.err.println(ct.getBrandName() + ct.getId() + "---"
+					+ ct.getCategoryName() + "---" + ct.getTypeName());
+		}
+	}
+
+	@Test
+	public void selectCategory() {
+		List<Category> list = session.createQuery("from Category").list();
+		for (Category c : list) {
+			System.err.println(c.getBrandName() + "---" + c.getCategoryName());
+		}
 	}
 
 	@After

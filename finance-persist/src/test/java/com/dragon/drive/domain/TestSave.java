@@ -32,7 +32,6 @@ public class TestSave {
 		session.beginTransaction();
 	}
 
-	@Ignore
 	@Test
 	public void testSaveUser() {
 
@@ -50,7 +49,7 @@ public class TestSave {
 		user.setWeibo("hantong4510");
 		session.save(user);
 	}
-	@Ignore
+
 	@Test
 	public void testSaveCar() {
 
@@ -64,16 +63,16 @@ public class TestSave {
 		car.setCatergoryName("3.0T");
 		session.save(car);
 	}
-	@Ignore
+
 	@Test
 	public void testSaveInsuranceWithNewCar() {
 
 		Car car = new Car();
 		car.setBrandName("奔驰");
-		car.setCarlicence("13332432fdsa");
-		car.setEnginenum("22233131");
+		car.setCarlicence("133324322fdsa");
+		car.setEnginenum("222331231");
 		car.setMileage(12222);
-		car.setPlatenum("京A88888");
+		car.setPlatenum("京A88878");
 		car.setTypeName("豪华");
 		car.setCatergoryName("3.0T");
 
@@ -86,18 +85,18 @@ public class TestSave {
 		insurance.setProtector("李晓明");
 		insurance.setName("平安保险");
 		insurance.setInformation("车门损坏，换了一个车门");
-		insurance.setCar(car);
 
-		session.save(car);
+		car.setInsurance(insurance);
 		session.save(insurance);
+		session.save(car);
 
 	}
-	@Ignore
+
 	@Test
 	public void testSaveInsuranceByPrisistCar() {
 		Car car = (Car) session.createQuery("from Car where id=?")
-				.setInteger(0, 4).uniqueResult();
-		
+				.setInteger(0, 1).uniqueResult();
+
 		Insurance insurance = new Insurance();
 		insurance.setAccidentTimes(2);
 		insurance.setCost(22222);
@@ -107,8 +106,52 @@ public class TestSave {
 		insurance.setProtector("李小强");
 		insurance.setName("太平保险");
 		insurance.setInformation("车门损坏，换了一个车门");
-		insurance.setCar(car);
+		car.setInsurance(insurance);
 		session.save(insurance);
+		session.save(car);
+	}
+
+	@Test
+	public void saveAccident() {
+		Car car = (Car) session.createQuery("from Car where id=?")
+				.setInteger(0, 1).uniqueResult();
+
+		Accident accident = new Accident();
+		accident.setAccidentType(AccidentType.unilateral);
+		accident.setCost(3000);
+		accident.setDescription("自己撞树了");
+		accident.setHurt(false);
+		accident.setTime(new Date());
+		accident.setStatus(true);
+
+		car.getAccidents().add(accident);
+		session.save(car);
+	}
+
+	@Test
+	public void saveBrand() {
+		Brand brand = new Brand();
+		brand.setBrandName("奥迪");
+		session.save(brand);
+	}
+
+	@Test
+	public void saveCategory() {
+		Category catergory = new Category();
+		catergory.setCategoryName("S600");
+		catergory.setBrandName("奔驰");
+		session.save(catergory);
+	}
+
+	@Test
+	public void saveCarType() {
+		CarType type = new CarType();
+		type.setBrandName("奔驰");
+		type.setCategoryName("S600");
+		type.setTypeName("3.0T商务豪华");
+
+		session.save(type);
+
 	}
 
 	@After
