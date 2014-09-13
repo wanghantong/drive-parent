@@ -50,6 +50,7 @@ public class TestSave {
 		session.save(user);
 	}
 
+	@Ignore
 	@Test
 	public void testSaveCar() {
 
@@ -64,6 +65,7 @@ public class TestSave {
 		session.save(car);
 	}
 
+	@Ignore
 	@Test
 	public void testSaveInsuranceWithNewCar() {
 
@@ -92,6 +94,7 @@ public class TestSave {
 
 	}
 
+	@Ignore
 	@Test
 	public void testSaveInsuranceByPrisistCar() {
 		Car car = (Car) session.createQuery("from Car where id=?")
@@ -111,6 +114,7 @@ public class TestSave {
 		session.save(car);
 	}
 
+	@Ignore
 	@Test
 	public void saveAccident() {
 		Car car = (Car) session.createQuery("from Car where id=?")
