@@ -1,17 +1,17 @@
 package com.dragon.drive.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Brand implements Serializable {
 
 	private static final long serialVersionUID = -6043177796869014643L;
 
 	private Integer id;
-	private String name;
+	private String brandName;
 
-	private List<Catergory> categories = new ArrayList<Catergory>();
+	Set<Category> categories = new HashSet<Category>();
 
 	public Integer getId() {
 		return id;
@@ -21,19 +21,19 @@ public class Brand implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getBrandName() {
+		return brandName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
 	}
 
-	public List<Catergory> getCategories() {
+	public Set<Category> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<Catergory> categories) {
+	public void setCategories(Set<Category> categories) {
 		this.categories = categories;
 	}
 

@@ -2,27 +2,18 @@ package com.dragon.drive.domain;
 
 import java.io.Serializable;
 
-public class CarType implements Serializable {
+public class CarType extends Category implements Serializable {
 
 	private static final long serialVersionUID = -143416763704885890L;
 
-	private Integer id;
-	private String name;
+	private String typeName;
 
-	public Integer getId() {
-		return id;
+	public String getTypeName() {
+		return typeName;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
 	}
 
 }
