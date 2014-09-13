@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.dragon.drive.domain">
+
+	<class name="Brand" table="brand">
+		<id name="id" column="brandId">
+			<generator class="native" />
+		</id>
+		<property name="brandName" />
+
+
+		<joined-subclass name="Category" table="category">
+			<key column="brandId" />
+			<property name="categoryName" />
+
+			<joined-subclass name="CarType" table="carType">
+				<key column="brandId" />
+				<property name="typeName" />
+			</joined-subclass>
+
+
+		</joined-subclass>
+
+
+
+	</class>
+
+</hibernate-mapping>
