@@ -17,7 +17,7 @@
 		<property name="catergoryName" />
 		<property name="typeName" />
 
-		<set name="accidents" table="car_accident">
+		<set name="accidents" table="car_accident" cascade="all">
 			<key column="id" />
 			<many-to-many column="accidentId" unique="true" class="Accident" />
 		</set>
