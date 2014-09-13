@@ -20,8 +20,7 @@
 		<property name="cost" />
 		<property name="status" />
 
-		<many-to-one name="car" column="carId" unique="true"
-			not-null="true"></many-to-one>
+		
 	</class>
 
 </hibernate-mapping>

@@ -18,6 +18,8 @@ public class Car implements Serializable {
 	private String catergoryName;
 	private String typeName;
 
+	private Insurance insurance;
+	
 	Set<Accident> accidents = new HashSet<Accident>();
 
 	public Integer getId() {
@@ -90,6 +92,14 @@ public class Car implements Serializable {
 
 	public void setAccidents(Set<Accident> accidents) {
 		this.accidents = accidents;
+	}
+
+	public Insurance getInsurance() {
+		return insurance;
+	}
+
+	public void setInsurance(Insurance insurance) {
+		this.insurance = insurance;
 	}
 
 }

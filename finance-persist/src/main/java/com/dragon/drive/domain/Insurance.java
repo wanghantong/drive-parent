@@ -17,8 +17,6 @@ public class Insurance implements Serializable {
 	private double cost;
 	private boolean status;
 
-	private Car car;
-
 	public Integer getId() {
 		return id;
 	}
@@ -91,12 +89,5 @@ public class Insurance implements Serializable {
 		this.status = status;
 	}
 
-	public Car getCar() {
-		return car;
-	}
-
-	public void setCar(Car car) {
-		this.car = car;
-	}
 
 }

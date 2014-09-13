@@ -9,13 +9,16 @@
 		<id name="id" column="carId">
 			<generator class="native" />
 		</id>
-		<property name="platenum" unique="true"/>
-		<property name="carlicence" unique="true"/>
-		<property name="enginenum" unique="true"/>
+		<property name="platenum" unique="true" />
+		<property name="carlicence" unique="true" />
+		<property name="enginenum" unique="true" />
 		<property name="mileage" />
 		<property name="brandName" />
 		<property name="catergoryName" />
 		<property name="typeName" />
+
+		<many-to-one name="insurance" column="insuranceId" unique="true"
+			not-null="false"></many-to-one>
 
 		<set name="accidents" table="car_accident" cascade="all">
 			<key column="id" />
