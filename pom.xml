@@ -19,6 +19,12 @@
 		<hibernate.ga.version>3.2.6.ga</hibernate.ga.version>
 		<hibernate-testing.version>4.3.6.Final</hibernate-testing.version>
 		<mysql-connector-java.version>5.1.31</mysql-connector-java.version>
+
+		<maven-clean-plugin.version>2.5</maven-clean-plugin.version>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+		<maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
+
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -79,23 +85,66 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<!-- clean -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${maven-clean-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>auto-clean</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>clean</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- compile -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
 					<configuration>
 						<source>1.7</source>
 						<target>1.7</target>
 					</configuration>
 				</plugin>
+				<!-- resources -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
 					<configuration>
+						<!-- By default, Maven will look for your project's resources under 
+							src/main/resources. -->
 						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<!-- surefire -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+					<configuration>
+						<!-- Running tests in parallel -->
+						<!-- This is particularly useful for slow tests that can have high 
+							concurrency. -->
+						<parallel>methods</parallel>
+						<threadCount>3</threadCount>
+						<!-- 是否跳过测试 -->
+						<skipTests>false</skipTests>
+						<!-- default contains start and end with "Test" or endWith "TestCase" -->
+						<!-- exclude some TestCases -->
+						<excludes>
+							<exclude>**/TestSave.java</exclude>
+							<exclude>**/TestHibernateConnectMysql.java</exclude>
+						</excludes>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
+
 	</build>
 	<modules>
 		<module>finance-persist</module>
